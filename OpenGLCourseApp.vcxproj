@@ -91,7 +91,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../External Libs/GLFW/glfw-3.3.5.bin.WIN32/include;$(SolutionDir)../../External Libs/GLEW/glew-2.2.0/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../External Libs/GLFW/glfw-3.3.5.bin.WIN32/include;$(SolutionDir)../../External Libs/GLM;$(SolutionDir)../../External Libs/GLEW/glew-2.2.0/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -108,7 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../External Libs/GLFW/glfw-3.3.5.bin.WIN32/include;$(SolutionDir)../../External Libs/GLEW/glew-2.2.0/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../External Libs/GLFW/glfw-3.3.5.bin.WIN32/include;$(SolutionDir)../../External Libs/GLM;$(SolutionDir)../../External Libs/GLEW/glew-2.2.0/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,7 +125,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../External Libs/GLFW/glfw-3.3.5.bin.WIN32/include;$(SolutionDir)../../External Libs/GLEW/glew-2.2.0/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../External Libs/GLFW/glfw-3.3.5.bin.WIN32/include;$(SolutionDir)../../External Libs/GLM;$(SolutionDir)../../External Libs/GLEW/glew-2.2.0/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,7 +142,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../External Libs/GLFW/glfw-3.3.5.bin.WIN32/include;$(SolutionDir)../../External Libs/GLEW/glew-2.2.0/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../External Libs/GLFW/glfw-3.3.5.bin.WIN32/include;$(SolutionDir)../../External Libs/GLM;$(SolutionDir)../../External Libs/GLEW/glew-2.2.0/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
