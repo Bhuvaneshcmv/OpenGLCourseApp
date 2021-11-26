@@ -18,7 +18,10 @@ void Shader::CreateFromFiles(const char* vertexLocation, const char* fragmentLoc
 	std::string fragmentString = ReadFile(fragmentLocation);
 	const char* vertexCode = vertexString.c_str();
 	const char* fragmentCode = fragmentString.c_str();
+
+	CompileShader(vertexCode, fragmentCode);
 }
+
 std::string Shader::ReadFile(const char* fileLocation)
 {
 	std::string content;
@@ -37,6 +40,7 @@ std::string Shader::ReadFile(const char* fileLocation)
 		content.append(line + "\n");
 	}
 	fileStream.close();
+	return content;
 }
 
 void Shader::CompileShader(const char* vertexCode, const char* fragmentCode)
@@ -123,6 +127,7 @@ void Shader::AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderT
 	{
 		glGetShaderInfoLog(theShader, 1024, NULL, eLog);
 		fprintf(stderr, "Error compiling the %d shader: '%s'\n", shaderType, eLog);
+		//printf( "Error compiling the %d shader: '%s'\n", shaderType, eLog);
 		return;
 	}
 
