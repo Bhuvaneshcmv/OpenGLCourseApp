@@ -6,7 +6,7 @@ Texture::Texture()
 	width = 0;
 	height = 0;
 	bitDepth = 0;
-	fileLocation = "";
+	fileLocation = (char*)"";
 }
 
 Texture::Texture(char* fileLoc)
@@ -56,7 +56,7 @@ void Texture::ClearTexture()
 	width = 0;
 	height = 0;
 	bitDepth = 0;
-	fileLocation = "";
+	fileLocation = (char*)"";
 }
 
 

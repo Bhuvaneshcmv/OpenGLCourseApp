@@ -80,9 +80,9 @@ int main()
 
 	camera = Camera(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0), -90, 0, 5, 0.5);
 
-	brickTexture = Texture("Textures/brick.png");
+	brickTexture = Texture((char*)("Textures/brick.png"));
 	brickTexture.LoadTexture();
-	dirtTexture = Texture("Textures/dirt.png");
+	dirtTexture = Texture((char*)("Textures/dirt.png"));
 	dirtTexture.LoadTexture();
 
 	GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0;
