@@ -21,6 +21,7 @@
 #include "Texture.h"
 #include "DirectionalLight.h"
 #include "PointLight.h"
+#include "SpotLight.h"
 #include "Material.h"
 
 const float toRadians = 3.141592f / 180.0f;
@@ -42,6 +43,7 @@ Material dullMaterial;
 
 DirectionalLight mainLight;
 PointLight pointLights[MAX_POINT_LIGHTS];
+SpotLight spotLights[MAX_SPOT_LIGHTS];
 
 // Vertex Shader code
 static const char* vShader = "Shaders/shader.vert";
@@ -154,24 +156,41 @@ int main()
 	dullMaterial = Material(0.3f, 4);
 
 	mainLight = DirectionalLight(1.0f,1.0f,1.0f,
-								0.0f,0.0f,
+								0.1f,0.1f,
 								0.0f,0.0f,-1.0f);
 
 	unsigned int pointLightCount = 0;
 
 	pointLights[0] = PointLight(0.0f, 0.0f, 1.0f,
-								0.0f, 1.0f,
+								0.0f, 0.1f,
 								0.0f, 0.0f, 0.0f,
 								0.3f, 0.2f, 0.1f);
 
 	pointLightCount++;
 
 	pointLights[1] = PointLight(0.0f, 1.0f, 0.0f,
-								0.0f, 1.0f,
+								0.0f, 0.1f,
 								-4.0f, 2.0f, 0.0f,
 								0.3f, 0.1f, 0.1f);
 
 	pointLightCount++;
+
+	unsigned int spotLightCount = 0;
+	spotLights[0] = SpotLight(1.0, 1.0, 1.0,
+							0.0, 2.0,
+							0.0, 0.0, 0.0,
+							0.0, -1.0, 0.0,
+							1.0, 0.0, 0.0,
+							20.0);
+	spotLightCount++;
+
+	spotLights[0] = SpotLight(1.0, 1.0, 1.0,
+							0.0, 1.0,
+							0.0, 1.5, 0.0,
+							0.0, -1.0, 0.0,
+							1.0, 0.0, 0.0,
+							20.0);
+	spotLightCount++;
 
 	GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
 		uniformSpecularIntensiy = 0, uniformShininess = 0;
@@ -202,8 +221,14 @@ int main()
 		uniformSpecularIntensiy = shaderList[0].GetSpecularIntensityLocation();
 		uniformShininess = shaderList[0].GetShininessLocation();
 
+		glm::vec3 lowerLight = camera.GetCameraPosition();
+		lowerLight.y -= 0.3f;
+
+		spotLights[0].SetFlash(lowerLight, camera.GetCameraDirection());
+
 		shaderList[0].SetDirectionalLight(&mainLight);
 		shaderList[0].SetPointLights(pointLights, pointLightCount);
+		shaderList[0].SetSpotLights(spotLights, spotLightCount);
 		//mainLight.UseLight(uniformAmbientIntensity, uniformAmbientColour, uniformDiffuseIntensity,uniformDirection);
 
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
@@ -231,7 +256,7 @@ int main()
 		model = glm::translate(model, glm::vec3(0, -2.0, -2.5));
 		//model = glm::scale(model, glm::vec3(0.4, 0.4, 1.0));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		plainTexture.UseTexture();
+	    dirtTexture.UseTexture();
 		shinyMaterial.UseMaterial(uniformSpecularIntensiy, uniformShininess);
 		meshList[2]->RenderMesh();
 
